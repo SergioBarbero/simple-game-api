@@ -9,8 +9,10 @@ import org.springframework.web.client.RestTemplate;
 @Table(name = "scores")
 public class Score {
 
+    private static final long serialVersionUID = -3009157732242241606L;
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Column(name = "name", nullable = false)
@@ -48,6 +50,6 @@ public class Score {
 
     @Override
     public String toString() {
-        return "{ name: " + this.getName() + ", " + "score: " + this.getScore() + "countryCode: " + this.getCountryCode() + "}";
+        return "{ name: " + this.getName() + "}";
     }
 }
