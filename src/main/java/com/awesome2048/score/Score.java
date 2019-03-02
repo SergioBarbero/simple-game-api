@@ -24,10 +24,13 @@ public class Score {
     @Column(name = "ip", nullable = false)
     private String ip;
 
-    public Score(String name, int score) {
+    public Score(String name, int score, String ip) {
         this.name = name;
         this.score = score;
+        this.ip = ip;
     }
+
+    public Score() {}
 
     public String getName() {
         return this.name;
