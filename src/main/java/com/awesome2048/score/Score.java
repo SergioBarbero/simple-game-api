@@ -23,10 +23,9 @@ public class Score {
     @Column(name = "ip", nullable = false)
     private String ip;
 
-    public Score(String name, int score, String ip) {
+    public Score(String name, int score) {
         this.name = name;
         this.score = score;
-        this.ip = ip;
     }
 
     public Score() {}
@@ -41,6 +40,10 @@ public class Score {
 
     public String getIp() {
         return this.ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
     public String getCountryCode() {
