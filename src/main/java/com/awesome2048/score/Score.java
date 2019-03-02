@@ -49,9 +49,4 @@ public class Score {
         String countryCode = restTemplate.getForObject(endpoint, String.class).split(";")[2];
         return countryCode;
     }
-
-    @Override
-    public String toString() {
-        return "{ name: " + this.getName() + "}";
-    }
 }
