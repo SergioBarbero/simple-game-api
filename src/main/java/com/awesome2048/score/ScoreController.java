@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,14 +20,9 @@ public class ScoreController {
     ScoreRepository repository;
 
     @GetMapping("/scores")
-    public String fetchScores() throws JsonProcessingException {
-        List<Score> scores = (List<Score>) repository.findAll();
-
-        ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule("ScoreSerializer");
-        module.addSerializer(Score.class, new ScoreSerializer());
-        mapper.registerModule(module);
-        return mapper.writeValueAsString(scores);
+    public List<Score> fetchScores() throws JsonProcessingException {
+        List<Score> scores = (ArrayList<Score>) repository.findAll();
+        return scores;
     }
 
     @PostMapping("/scores")
