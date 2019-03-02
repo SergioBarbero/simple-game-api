@@ -29,7 +29,7 @@ public class ScoreController {
         return mapper.writeValueAsString(scores);
     }
 
-    @PostMapping("scores")
+    @PostMapping("/scores")
     public Score newScore(@RequestBody Score newScore, HttpServletRequest request) {
         newScore.setIp(request.getRemoteAddr());
         repository.save(newScore);

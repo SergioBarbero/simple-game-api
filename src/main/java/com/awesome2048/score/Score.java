@@ -2,8 +2,10 @@ package com.awesome2048.score;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.web.client.RestTemplate;
 
+@JsonSerialize(using = ScoreSerializer.class)
 @Entity
 @Table(name = "scores")
 public class Score {
