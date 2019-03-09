@@ -21,7 +21,7 @@ public class Score {
     @Column(name = "score", nullable = false)
     private int score;
 
-    @Column(name = "country_code", nullable = false)
+    @Column(name = "country_code", columnDefinition = "bpchar(2)", nullable = false)
     private String countryCode;
 
     public Score(String name, int score) {
