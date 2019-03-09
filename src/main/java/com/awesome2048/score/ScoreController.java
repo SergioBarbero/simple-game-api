@@ -2,10 +2,7 @@ package com.awesome2048.score;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -21,9 +18,11 @@ public class ScoreController {
     ScoreRepository repository;
 
     @GetMapping("/scores")
-    public List<Score> fetchScores() throws JsonProcessingException {
-        List<Score> scores = (List<Score>) repository.findAll();
-        return scores;
+    public List<Score> fetchScores(@RequestParam(value = "limit", required = false) String limit) {
+        if (limit == null) {
+            List<Score> scores = (List<Score>) repository.findAll();
+            return scores;
+        }
     }
 
     @PostMapping("/scores")
