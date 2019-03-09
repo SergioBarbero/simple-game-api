@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ScoreRepository extends CrudRepository<Score, Long> {
 
-    @Query("SELECT * FROM scores ORDER BY score DESC LIMIT :n")
+    @Query(value = "SELECT * FROM scores ORDER BY score DESC LIMIT :n", nativeQuery = true)
     public List<Score> findNBest(@Param("n") int n);
 }
