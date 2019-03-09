@@ -1,6 +1,5 @@
 package com.awesome2048.score;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,16 +26,12 @@ public class ScoreController {
     }
 
     @PostMapping("/scores")
-    public Score newScore(@RequestBody Score newScore, HttpServletRequest request) {
+    public Score newScore(@RequestBody Score newScore, HttpServletRequest request) throws IOException {
         String query = "http://api.ipinfodb.com/v3/ip-country/?key=62ee2a10303261af0cf55d6eb2c807c8db5e6fa539fe5ba843c341f4062bfaea&format=json&ip=" + request.getRemoteAddr();
         String userInfo = new RestTemplate().getForObject(query, String.class);
-        try {
-            String countryCode = ExternalService.readField(userInfo, "countryCode");
-            newScore.setCountryCode(countryCode);
-            repository.save(newScore);
-        } catch (IOException e) {
-
-        }
+        String countryCode = ExternalService.readField(userInfo, "countryCode");
+        newScore.setCountryCode(countryCode);
+        repository.save(newScore);
         return newScore;
     }
 }
