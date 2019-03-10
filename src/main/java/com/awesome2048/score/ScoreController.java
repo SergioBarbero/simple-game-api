@@ -18,11 +18,7 @@ public class ScoreController {
 
     @GetMapping("/scores")
     public List<Score> fetchScores(@RequestParam(value = "limit", required = false) Integer limit) {
-        if (limit == null) {
-            return (List<Score>) repository.findAll();
-        } else {
-            return repository.findNBest(limit);
-        }
+        return (limit == null) ? (List<Score>) repository.findAll() : repository.findNBest(limit);
     }
 
     @PostMapping("/scores")
