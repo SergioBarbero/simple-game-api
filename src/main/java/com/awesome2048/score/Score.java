@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import java.util.Date;
+
 @JsonSerialize(using = ScoreSerializer.class)
 @Entity
 @Table(name = "scores")
@@ -24,6 +26,14 @@ public class Score {
     @Column(name = "country_code", columnDefinition = "bpchar(2)", nullable = false)
     private String countryCode;
 
+    @Column(name="timestamp", nullable=false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestamp;
+
+    @PrePersist
+    protected void onCreate() {
+        timestamp = new Date();
+    }
     public Score(String name, int score) {
         this.name = name;
         this.score = score;
@@ -46,4 +56,6 @@ public class Score {
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
+
+    public Date getTimestamp() { return this.timestamp; }
 }

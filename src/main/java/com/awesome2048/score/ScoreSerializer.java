@@ -5,8 +5,12 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 
 public class ScoreSerializer extends StdSerializer<Score> {
+
+    Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public ScoreSerializer() {
         this(null);
@@ -22,6 +26,7 @@ public class ScoreSerializer extends StdSerializer<Score> {
         jsonGenerator.writeStringField("name", score.getName());
         jsonGenerator.writeNumberField("score", score.getScore());
         jsonGenerator.writeStringField("countryCode", score.getCountryCode());
+        jsonGenerator.writeStringField("timestamp", formatter.format(score.getTimestamp()));
         jsonGenerator.writeEndObject();
     }
 }

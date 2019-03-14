@@ -1,0 +1,3 @@
+INSERT INTO scores VALUES (DEFAULT, 'Angelika', 2048, 'PL'),
+INSERT INTO scores VALUES (DEFAULT, 'Pepe', 64, 'ES'),
+INSERT INTO scores VALUES (DEFAULT, 'Nacho', 1024, 'MX')
