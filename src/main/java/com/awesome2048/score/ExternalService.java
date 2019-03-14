@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.io.IOException;
 
 public class ExternalService {
+
     public static String readField(String json, String name) throws IOException {
         if (name != null) {
             ObjectNode object = new ObjectMapper().readValue(json, ObjectNode.class);

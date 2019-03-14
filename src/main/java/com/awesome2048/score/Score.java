@@ -26,7 +26,7 @@ public class Score {
     @Column(name = "country_code", columnDefinition = "bpchar(2)", nullable = false)
     private String countryCode;
 
-    @Column(name="timestamp", nullable=false)
+    @Column(name="timestamp", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
@@ -34,6 +34,7 @@ public class Score {
     protected void onCreate() {
         timestamp = new Date();
     }
+
     public Score(String name, int score) {
         this.name = name;
         this.score = score;

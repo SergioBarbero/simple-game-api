@@ -26,7 +26,7 @@ public class ScoreSerializer extends StdSerializer<Score> {
         jsonGenerator.writeStringField("name", score.getName());
         jsonGenerator.writeNumberField("score", score.getScore());
         jsonGenerator.writeStringField("countryCode", score.getCountryCode());
-        jsonGenerator.writeStringField("timestamp", formatter.format(score.getTimestamp()));
+        jsonGenerator.writeStringField("timestamp", this.formatter.format(score.getTimestamp()));
         jsonGenerator.writeEndObject();
     }
 }
