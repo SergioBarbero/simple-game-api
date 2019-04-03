@@ -17,12 +17,12 @@ public class ScoreController {
     ScoreRepository repository;
 
     @GetMapping("/scores")
-    public List<Score> fetchScores(@RequestParam(value = "limit", required = false) Integer limit) {
+    public List<Score> getScores(@RequestParam(value = "limit", required = false) Integer limit) {
         return (limit == null) ? (List<Score>) repository.findAll() : repository.findNBest(limit);
     }
 
     @PostMapping("/scores")
-    public Score newScore(@RequestBody Score newScore, HttpServletRequest request) throws IOException {
+    public Score postScore(@RequestBody Score newScore, HttpServletRequest request) throws IOException {
         String query = "http://api.ipinfodb.com/v3/ip-country/?key=62ee2a10303261af0cf55d6eb2c807c8db5e6fa539fe5ba843c341f4062bfaea&format=json&ip=" + request.getRemoteAddr();
         String userInfo = new RestTemplate().getForObject(query, String.class);
         String countryCode = ExternalService.readField(userInfo, "countryCode");
