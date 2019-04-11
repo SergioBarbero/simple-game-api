@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.web.client.RestTemplate;
-
-
 @RestController
 public class ScoreController {
 
