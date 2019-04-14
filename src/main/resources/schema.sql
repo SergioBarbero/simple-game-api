@@ -4,4 +4,4 @@ CREATE TABLE scores (
     score INTEGER NOT NULL CHECK (score > 0),
     country_code CHAR(2) NOT NULL,
     timestamp TIMESTAMP NOT NULL
-)
+);
