@@ -12,4 +12,8 @@ public interface ScoreRepository extends CrudRepository<Score, Long> {
 
     @Query(value = "SELECT * FROM scores ORDER BY score DESC LIMIT :n", nativeQuery = true)
     public List<Score> findNBest(@Param("n") int n);
+
+    @Override
+    @Query(value = "SELECT * FROM scores ORDER BY score DESC", nativeQuery = true)
+    public List<Score> findAll();
 }
