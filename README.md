@@ -1,5 +1,7 @@
 # awesome2048-api
 
+Simple API made with the purpose of posting and getting scores of users in the game
+
 ## Initialization of database
 
 1. Make sure you have PostgreSQL and maven properly installed
