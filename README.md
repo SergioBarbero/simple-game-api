@@ -1,6 +1,6 @@
-# awesome2048-api
+# Simple Game API
 
-Simple API made with the purpose of posting and getting scores of users in the game
+Simple API made with the purpose of posting and getting scores of users in a game
 
 ## Initialization of database
 
