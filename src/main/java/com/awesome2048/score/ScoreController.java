@@ -11,7 +11,7 @@ import java.util.List;
 public class ScoreController {
 
     @Autowired
-    ScoreService scores;
+    private ScoreService scores;
 
     @GetMapping("/scores")
     public List<Score> getScores(@RequestParam(value = "limit", required = false) Integer limit) {

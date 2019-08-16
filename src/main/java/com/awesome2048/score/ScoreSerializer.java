@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 
 public class ScoreSerializer extends StdSerializer<Score> {
 
-    Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public ScoreSerializer() {
         this(null);

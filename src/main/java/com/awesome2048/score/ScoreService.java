@@ -7,7 +7,7 @@ import java.util.List;
 public class ScoreService {
 
     @Autowired
-    ScoreRepository repository;
+    private ScoreRepository repository;
 
     public List<Score> getScores() {
         return repository.findAll();
